@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accuire</title>
+    <style>
+        h1{
+            text-align: center;
+            margin-top: 10px;
+        }
+        .book{
+            display: flex;
+            margin-left: 25%;
+            margin-bottom: 10px;
+        }
+        .checkbox{
+            position: absolute;
+            margin-left: 70px;
+            margin-top: 70px;
+        }
+        h5{
+            position: relative;
+            top: 68px;
+            left: 90px;
+        }
+    </style>
+</head>
+<body>
+    <h1>list of donated books</h1>
+    <% book.forEach((bk)=>{ %>
+        <div class="book">
+            <div class="content">
+            <h4>name : <%= book.name %></h4>
+            <h4>Department : <%= book.department %></h4>
+            <h4>Class : <%= book.semester %></h4>
+            <h4>Book : <%= book.book %></h4>
+        </div>
+             <div class="check">
+            <form action="/delete" method="post">
+                  <input type="checkbox" name="checkbox" class="checkbox" value="<%= bk._id %>"  onChange="this.form.submit()">
+                  <h5>mark this as accuired</h5>
+                </form>
+            </div>
+        </div>
+  <%  }) %>
+</body>
+</html>
