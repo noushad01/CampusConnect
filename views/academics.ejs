@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>academics</title>
+   
+    <style>
+        h1{
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .container {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "First-year First-year"
+    "S1 S2"
+    "S1-content S2-content";
+  width: 100%;
+  height: 111px;
+  margin-bottom: 50px;
+}
+
+.S2 { grid-area: S2;
+background-color: rgb(224, 102, 102); }
+
+.First-year { grid-area: First-year;
+background-color: rgb(174, 174, 174); }
+
+.S1 { 
+grid-area: S1;
+background-color:burlywood;}
+
+.S1-content { grid-area: S1-content;
+background-color: burlywood; }
+
+.S2-content { grid-area: S2-content;
+background-color: rgb(224, 102, 102); }
+
+    h5{
+        text-align: center;
+    }
+
+    </style>
+    
+</head>
+<body>
+    <h1>check details of the portions completed</h1>
+    <div class="container">
+        <div class="S2"><h5>S2</h5></div>
+        <div class="First-year"><h5>First-year</h5></div>
+        <div class="S1"><h5>S1</h5></div>
+        <div class="S1-content"></div>
+        <div class="S2-content"></div>
+      </div>
+
+      <div class="container">
+        <div class="S2"><h5>S4</h5></div>
+        <div class="First-year"><h5>Second-year</h5></div>
+        <div class="S1"><h5>S3</h5></div>
+        <div class="S1-content"></div>
+        <div class="S2-content"></div>
+      </div>
+
+      <div class="container">
+        <div class="S2"><h5>S6</h5></div>
+        <div class="First-year"><h5>Third-year</h5></div>
+        <div class="S1"><h5>S5</h5></div>
+        <div class="S1-content"></div>
+        <div class="S2-content"></div>
+      </div>
+
+      <div class="container">
+        <div class="S2"><h5>S8</h5></div>
+        <div class="First-year"><h5>Fourth-year</h5></div>
+        <div class="S1"><h5>S7</h5></div>
+        <div class="S1-content"></div>
+        <div class="S2-content"></div>
+      </div>     
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>donate</title>
+    <style>
+        .container{
+            margin-left: 15%;
+        }
+        h1{
+            margin-left: 25%;
+            margin-bottom: 80px;
+        }
+        #name{
+            margin-left: 41px;
+        }
+        #semester{
+            margin-left: 15px;
+        }
+        #book{
+            margin-left: 40px;
+        }
+        button{
+            position: relative;
+            margin-left: 300px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>please list your books you want to donate</h1>
+    <div class="container">
+        <form action="/upd" method="post">
+            <label for="name">name</label> <input type="text" id="name" name="name"><br>
+            <label for="name">Department</label> <input type="text" id="Department" name="Department"><br>
+            <label for="name">sem,class</label> <input type="text" id="semester" name="semester"><br>
+            <label for="name">Book</label> <input type="text" id="book" name="book"><br>
+            <button>Donate</button>
+        </form>
+    </div>
+</body>
+</html>
