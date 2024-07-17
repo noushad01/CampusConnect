@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
+    <style>
+
+    @keyframes backgroundTransition {
+    0% { background-color: #6ebcdf; }
+    25%{ background-color: #af6ae7; }
+    50% { background-color: #65799B; }
+    75% { background-color: #2e6784; }
+    100% { background-color: #765af0; } 
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    animation: backgroundTransition 15s infinite;
+}
+
+.content {
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 2.5em;
+    color: #ebe1e1;
+}
+
+.get-started-btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.get-started-btn:hover {
+    background-color: #0056b3;
+}
+.a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: white;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="./images/logo.png" alt="Campus Connect Logo" class="logo" height="150px" width="150px">
+        </div>
+        <h1>Welcome to Campus Connect</h1>
+        <button class="get-started-btn" onclick="gotoLink('/main')">Get Started</button>
+        <a href="/lgn" class="a">login as admin</a>
+    </div>
+    
+
+
+    <script>
+        function gotoLink(link){
+          location.href = link;
+        }
+      </script>
+</body>
+</html>

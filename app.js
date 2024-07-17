@@ -20,11 +20,20 @@ const bookschema = mongoose.Schema({
     name : String,
     department : String,
     semester : String,
-    book : String
+    book : String,
+    whatsapp : Number,
+    email : String,
+    instagram : String
 });
 
 const mymodel = mongoose.model('image',myschema);
+
 const bookmodel = mongoose.model('book',bookschema);
+
+const User = mongoose.model('User', new mongoose.Schema({
+    username: { type: String, unique: true, required: true },
+    password: { type: String, required: true }
+}));
 
 const storage = multer.diskStorage({
     destination:'./public/images',
@@ -64,34 +73,73 @@ app.post("/upd",(req,res)=>{
     const department = req.body['Department'];
     const semester = req.body['semester'];
     const book = req.body['book'];
+    const whatsapp = req.body['whatsapp'];
+    const instagram = req.body['instagram'];
+    const email = req.body['email'];
     bookmodel.create({
         name : name,
         department : department,
         semester : semester,
-        book : book
+        book : book,
+        whatsapp : whatsapp,
+        email : email,
+        instagram : instagram
     }).then(()=>{
         res.redirect('/book');
     });
 });
 
-app.post("/delete",(req,res)=> {
+// app.post("/delete",(req,res)=> {
+//     var delItem = req.body.checkbox;
+//      sweep(delItem)
+//     res.redirect("/accuire");
+// });
+
+app.post("/del",(req,res)=> {
     var delItem = req.body.checkbox;
      sweep(delItem)
-    res.redirect("/accuire");
+    res.redirect("/remove");
 });
 
+app.post('/cdel',(req,res)=> {
+    var delItem = req.body.checkbox;
+     remove(delItem)
+    res.redirect("/staff");
+})
   async function sweep(item) {
        await bookmodel.findByIdAndDelete(item);
      };
 
+  async function remove(item) {
+    await mymodel.findByIdAndDelete(item);
+  };
+
 
 app.get("/",(req,res) => {
+    res.render("landing.ejs");
+});
+
+app.get("/main",(req,res)=> {
     res.render("main.ejs");
+});
+
+app.get("/admin",(req,res)=> {
+    res.render("admin.ejs");
+});
+
+app.get("/remove",(req,res)=> {
+    bookmodel.find({}).then((book)=>{
+        res.render("remove.ejs",{book : book});
+    });
+});
+app.get('/contact',(req,res)=> {
+    res.render("contact.ejs");
 });
 
 app.get("/charity",(req,res) => {
     res.render("charity.ejs");
 });
+
 
 app.get("/certificate",(req,res) => {
     res.render("certificate.ejs");
@@ -100,6 +148,49 @@ app.get("/certificate",(req,res) => {
 app.get("/student",(req,res) => {
     res.render("student.ejs");
 });
+
+app.get('/login', (req, res) => {
+    res.render('login', { errorMessage: null });
+});
+
+app.get('/lgn',(req,res)=> {
+    res.render('lgn',{ errorMessage: null});
+});
+
+const users = [
+    { username: 'user1', password: 'password1' },
+    { username: 'user2', password: 'password2' },
+    
+];
+
+const admin = [
+    { user: 'admin', pass: 'code'}
+];
+
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+        res.redirect('/staff')
+    } else {
+        res.render('login', { errorMessage: 'Invalid username or password' });
+    }
+});
+
+app.post('/lgn', (req, res) => {
+    const { user, pass } = req.body;
+    const adminlg = admin.find(u => u.user === user && u.pass === pass);
+
+    if (adminlg) {
+        res.redirect('/admin');
+    } else {
+        res.render('lgn', { errorMessage: 'Invalid username or password' });
+    }
+});
+
+
 
 app.get("/staff",(req,res)=>{
     mymodel.find({}).then((items)=>{
