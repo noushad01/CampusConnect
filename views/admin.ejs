@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+     font-size: 18px;
+    font-weight: bold;
+    padding: 15px 25px;
+    margin: 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, #007BFF, #00FF7F);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+    button:hover {
+    background: linear-gradient(90deg, #0056b3, #009966);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}   
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <button onclick="gotoLink('/remove')">remove donated books</button>
+</body>
+
+<script>
+    function gotoLink(link){
+        location.href = link;
+    }
+</script>
+</html>

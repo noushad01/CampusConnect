@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accuire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+       
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Styling the header */
+h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling each book container */
+.book {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin-bottom: 20px;  /* Ensures separation between each book div */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    border: 1px solid #ddd;  /* Light border for better separation */
+}
+
+.book:nth-child(odd) {
+    background-color: rgba(240, 240, 240, 0.9);  /* Light color for odd book divs */
+}
+
+.book:hover {
+    transform: scale(1.02);
+}
+
+/* Styling the content div */
+.book .content {
+    max-width: 70%;
+}
+
+/* Styling the h4 elements */
+.book .content h4 {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Styling the form and checkbox */
+.book .check {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book .check form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book .check input[type="checkbox"] {
+    margin: 10px 0;
+    transform: scale(1.5);
+}
+
+/* Styling the h5 element */
+.book .check h5 {
+    margin: 0;
+    color: #007BFF;
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+    color: #007BFF;
+}
+
+    </style>
+</head>
+<body>
+    <h1>list of donated books</h1>
+    <% book.forEach((bk)=>{ %>
+        <div class="book">
+            <div class="content">
+            <h4>Book : <%= bk.book %></h4>
+            <h4>name : <%= bk.name %></h4>
+            <h4>Department : <%= bk.department %></h4>
+            <h4>Class : <%= bk.semester %></h4>
+            
+            
+        </div>
+             <div class="check">
+            <form action="/delete" method="post">
+                 <!-- <input type="checkbox" name="checkbox" class="checkbox" value="<%= bk._id %>"  onChange="this.form.submit()" -->
+                 <!---- <h5>mark this as accuired</h5> -->
+                </form>
+                <a href="https://wa.me/<%= bk.whatsapp %>?text=hi <%= bk.name %>,I saw your listing of <%= bk.book %> book on CampusConnect. I would greatly appreciate it if you could donate the book to me "><i class="fab fa-whatsapp"></i> whatsapp</a> 
+                <a href="mailto:<%= bk.email %>?subject=Inquiry&body=hi <%= bk.name %>,I saw your listing of <%= bk.book %> book on CampusConnect. I would greatly appreciate it if you could donate the book to me"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://www.instagram.com/<%= bk.instagram %>/"><i class="fab fa-instagram"></i> instagram</a>
+                
+ 
+                
+            </div>
+        </div>
+  <%  }) %>
+</body>
+</html>
